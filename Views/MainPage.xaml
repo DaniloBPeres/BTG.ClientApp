@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BTG.ClientApp.Views.MainPage"
+             x:Name="MainPageRoot"
+             xmlns:vm="clr-namespace:BTG.ClientApp.ViewModels"
+             Title="Clientes">
+
+    <VerticalStackLayout Padding="20" Spacing="16">
+
+        <Button 
+            Text="Adicionar Cliente" 
+            Command="{Binding AddClientCommand}" 
+            HorizontalOptions="Center" 
+            WidthRequest="200" />
+
+        <CollectionView 
+            ItemsSource="{Binding Clients}" 
+            SelectionMode="None">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+            </CollectionView.ItemsLayout>
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="12" Margin="0,6">
+                        <VerticalStackLayout>
+
+                            <Label Text="{Binding FullName}" FontAttributes="Bold" FontSize="18" />
+                            <HorizontalStackLayout>
+                                <Label Text="{Binding Age}" Margin="0, 0, 5, 0"/>
+                                <Label Text="Anos" />
+                            </HorizontalStackLayout>
+                            <Label Text="{Binding Address}" FontSize="12" TextColor="Gray" />
+
+                            <HorizontalStackLayout Spacing="10" Margin="0,6,0,0">
+                                <Button Text="Editar"
+                                        Command="{Binding BindingContext.EditClientCommand, Source={x:Reference Name=MainPageRoot}}"
+                                        CommandParameter="{Binding Id}"
+                                        BackgroundColor="#0077cc"
+                                        TextColor="White"
+                                        WidthRequest="100" />
+
+                                <Button Text="Excluir"
+                                        Command="{Binding BindingContext.DeleteClientCommand, Source={x:Reference Name=MainPageRoot}}"
+                                        CommandParameter="{Binding Id}"
+                                        BackgroundColor="Tomato"
+                                        TextColor="White"
+                                        WidthRequest="100" />
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>
