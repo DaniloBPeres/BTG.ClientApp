@@ -26,7 +26,7 @@ Este projeto foi desenvolvido como parte de um **teste técnico**, utilizando a 
 A camada de lógica foi extraída para um repositório separado, permitindo testar sem dependência da UI MAUI.
 
 > 📁 Repositório de testes:  
-🔗 [`BTG.ClientApp.Tests`](https://github.com/seu-usuario/BTG.ClientApp.Tests)
+🔗 [`BTG.ClientApp.Tests`](https://github.com/DaniloBPeres/BTG.ClientApp.Tests)
 
 Os testes cobrem:
 
